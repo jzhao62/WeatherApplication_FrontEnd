@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
+import { Alert } from 'reactstrap';
+import AlertExample from '../others/AlertExample'
 
 const CA = {
     lat: 33.8120918,
@@ -14,7 +15,9 @@ const Chicago = {
 
 }
 
-
+/**
+ * Main Component to handle userInput
+ */
 class NameForm extends React.Component {
     constructor(props) {
         super(props);
@@ -37,11 +40,14 @@ class NameForm extends React.Component {
     }
 
 
-
+    /**
+     * One user click submit, do 2 things
+     * 1.ask the server to retrieve coordinates of start & and, in order to render map direction
+     * 2. ask the server to look up if start -> end exists in local DB, and return result.
+     * @param event
+     */
     handleSubmit(event) {
-        // alert('A Pair was about to be submitted: ' + this.state.start + " " + this.state.end);
         event.preventDefault();
-
 
         fetch('/xr/update_coordinate',{
             method:'POST',
@@ -79,10 +85,11 @@ class NameForm extends React.Component {
 
                 if(json == 'data all saved to DB, DB closed'){
                     console.log("pause in rendering frontend")
-                    alert("Weather Data fetched")
+                    alert('Data retrieved from remotes')
                 }
                 else{
                     this.props.reflect(json)
+                    alert('Data retrieved from local')
                 }
 
 

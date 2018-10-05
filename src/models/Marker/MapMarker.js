@@ -5,7 +5,9 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker,OverlayView } from "reac
 
 const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 
-
+/**
+ * Marker prototype
+ */
 class SmallMarker extends React.PureComponent{
 
     constructor(props){
@@ -38,6 +40,10 @@ class SmallMarker extends React.PureComponent{
 
 }
 
+
+/**
+ * Mark multiple weather spots simultaneoulsy on an existing map
+ */
 class ClusterMarker extends React.PureComponent{
 
     constructor(props){

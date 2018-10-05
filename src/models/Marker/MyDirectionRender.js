@@ -38,7 +38,7 @@ function pop(){
 }
 
 
-
+// DirectionRenderComponent from react-google-map, render on map start -> end
 const DirectionsRendererComponent = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDIdbrirI6DL4bNnn4UNVyKDxFYHj8hWVE&v=3.exp&libraries=geometry,drawing,places",
@@ -92,6 +92,11 @@ const DirectionsRendererComponent = compose(
     </GoogleMap>
 );
 
+
+/**
+ * Main Component children component : NameForm (handle user input) & DirectionRenderComponent
+ * update state via callback in <NameForm> component, and pass the updated states to <DirectionRenderComponent>
+ */
 
 class MyDirectionRender extends React.PureComponent {
 
@@ -162,8 +167,6 @@ class MyDirectionRender extends React.PureComponent {
 
 
 
-
-
                     <div>
                         <NameForm reflect = {this.triggerReflect}
                                   trigger = {this.triggerCoordinate}/>
@@ -183,16 +186,6 @@ class MyDirectionRender extends React.PureComponent {
             return (
 
                 <div>
-
-                    {/*<button onClick={this.triggerWeather}>*/}
-                        {/*Fetch Weather Data*/}
-                    {/*</button>*/}
-
-
-
-
-
-
                     <div>
                         <NameForm reflect = {this.triggerReflect}
                                   trigger = {this.triggerCoordinate}/>

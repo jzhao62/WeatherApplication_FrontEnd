@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 
-
-import {Card}from './models/card.js'
 import  {MyDirectionRender} from "./models/Marker/MyDirectionRender";
 import {MyCoordinateMarker, MyMapComponent} from "./models/Marker/MapMarker";
-
-
-
-
-
+import logo from './logo.svg';
+import './App.css';
+import PopOver from './models/PopOver'
 
 class App extends Component {
 
@@ -21,28 +17,42 @@ class App extends Component {
 
 
 
-
-
-
     render() {
 
 
         const style = {
-            padding: 40,
+            padding: 10,
         }
 
 
 
         return (
-            <div style={style}>
 
-                <Card />
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1 className="App-title">Welcome to use W-T App!</h1>
+
+                <div>
+                    <br></br>
+                    <PopOver input = {'Instruction'}/>
+                </div>
 
 
-                <MyDirectionRender/>
 
 
-            </div>
+                <div style={style}>
+                    <MyDirectionRender/>
+                </div>
+
+
+
+
+
+
+
+            </header>
+
+
         )
     }
 }
